@@ -64,7 +64,7 @@ def cancell_all_buttons(update, context):
     buttons.sbutton("Close", "canall close")
     button = buttons.build_menu(2)
     can_msg = sendMessage('Choose tasks to cancel.', context.bot, update.message, button)
-    Thread(target=auto_delete_message, args=(context.bot, update.message, can_msg )).start()
+    Thread(target=auto_delete_message, args=(context.bot, update.message, can_msg)).start()
 
 @new_thread
 def cancel_all_update(update, context):
