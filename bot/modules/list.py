@@ -16,7 +16,7 @@ def common_btn(isRecur, msg_id):
     buttons.sbutton("🗂️Folders", f"types folders {msg_id}")
     buttons.sbutton("📁Files", f"types files {msg_id}")
     buttons.sbutton("📑Both", f"types both {msg_id}")
-    buttons.sbutton(f"♻️Recursive {'✅️' if isRecur else ''}", f"types recur {msg_id}")
+    buttons.sbutton(f"Recursive {'✅️' if isRecur else ''}", f"types recur {msg_id}")
     buttons.sbutton("❌️Cancel", f"types cancel {msg_id}")
     return buttons.build_menu(3)
 
