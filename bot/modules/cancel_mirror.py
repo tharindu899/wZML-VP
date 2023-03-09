@@ -13,10 +13,11 @@ from bot.helper.telegram_helper import button_build
 def cancel_mirror(update, context):
     user_id = update.message.from_user.id
     if len(context.args) == 1:
-        gid = context.args[0]
+        gid = context.args[0].replace('_', ' ') # replace _ with space
         dl = getDownloadByGid(gid)
         if not dl:
             return sendMessage(f"GID: <code>{gid}</code> Not Found.", context.bot, update.message)
+  
     elif update.message.reply_to_message:
         mirror_message = update.message.reply_to_message
         with download_dict_lock:
