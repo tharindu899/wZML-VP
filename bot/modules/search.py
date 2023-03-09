@@ -54,7 +54,7 @@ def torser(update, context):
         sendMessage("Send a search key along with command", context.bot, update.message)
     elif len(context.args) == 0:
         buttons.sbutton('Trending', f"torser {user_id} apitrend")
-        buttons.sbutton('Recent', f"torser {user_id} apirecent")
+        buttons.sbutton('Recent', f"torser {user_id} apirecent")
         buttons.sbutton("Cancel", f"torser {user_id} cancel")
         button = buttons.build_menu(2)
         sendMessage("Send a search key along with command", context.bot, update.message, button)
@@ -63,13 +63,13 @@ def torser(update, context):
         buttons.sbutton('Plugins', f"torser {user_id} plugin")
         buttons.sbutton("Cancel", f"torser {user_id} cancel")
         button = buttons.build_menu(2)
-        sendMessage('Choose tool to search:', context.bot, update.message, button)
+        sendMessage('Choose tool to search:', context.bot, update.message, button)
     elif SITES is not None:
         button = __api_buttons(user_id, "apisearch")
-        sendMessage('Choose site to search | API:', context.bot, update.message, button)
+        sendMessage('Choose site to search | API:', context.bot, update.message, button)
     else:
         button = __plugin_buttons(user_id)
-        sendMessage('Choose site to search | Plugins:', context.bot, update.message, button)
+        sendMessage('Choose site to search | Plugins:', context.bot, update.message, button)
 
 def torserbut(update, context):
     query = update.callback_query
