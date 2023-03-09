@@ -286,7 +286,7 @@ try:
                 exit(1)
             TG_SPLIT_SIZE = 4194304000
             LOGGER.info("Telegram Premium Detected! Leech Limit upgraded to 4GB")
-        elif (not DATABASE_URL) or (not RSS_CHAT_ID):
+        elif (not DATABASE_URL):
             premium_session.stop()
             LOGGER.info(f"Not using rss. if you want to use fill RSS_CHAT_ID and DATABASE_URL variables.")
 except:
