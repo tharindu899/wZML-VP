@@ -22,12 +22,12 @@ def speedtest(update, context):
     currentTime = get_readable_time(time() - botStartTime)
     string_speed = f'''
 ╭─《 🚀 SPEEDTEST INFO 》
-├ <b>Upload:</b> <code>{speed_convert(result['upload'], False)}</code>
-├ <b>Download:</b>  <code>{speed_convert(result['download'], False)}</code>
-├ <b>Ping:</b> <code>{result['ping']} ms</code>
-├ <b>Time:</b> <code>{result['timestamp']}</code>
-├ <b>Data Sent:</b> <code>{get_readable_file_size(int(result['bytes_sent']))}</code>
-╰ <b>Data Received:</b> <code>{get_readable_file_size(int(result['bytes_received']))}</code>
+├ <b>📤Upload:</b> <code>{speed_convert(result['upload'], False)}</code>
+├ <b>📥Download:</b>  <code>{speed_convert(result['download'], False)}</code>
+├ <b>📍Ping:</b> <code>{result['ping']} ms</code>
+├ <b>🕒Time:</b> <code>{result['timestamp']}</code>
+├ <b>🚀Data Sent:</b> <code>{get_readable_file_size(int(result['bytes_sent']))}</code>
+╰ <b>📩Data Received:</b> <code>{get_readable_file_size(int(result['bytes_received']))}</code>
 
 ╭─《 🌐 SPEEDTEST SERVER 》
 ├ <b>Name:</b> <code>{result['server']['name']}</code>
