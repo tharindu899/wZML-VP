@@ -30,7 +30,7 @@ def list_buttons(update, context):
     button = common_btn(isRecur, msg_id)
     query = message.text.split(" ", maxsplit=1)[1]
     list_listener[msg_id] = [user_id, query, isRecur]
-    sendMessage('Choose Option to list.', context.bot, update.message, button)
+    sendMessage('🖍️Choose Option to list.', context.bot, update.message, button)
 
 def select_type(update, context):
     query = update.callback_query
