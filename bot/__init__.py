@@ -817,7 +817,7 @@ config_dict = {'ANILIST_ENABLED': ANILIST_ENABLED,
                'YT_DLP_QUALITY': YT_DLP_QUALITY}
 
 if GDRIVE_ID:
-    DRIVES_NAMES.append("Main")
+    DRIVES_NAMES.append("📱𝔸ℙℙ📱")
     DRIVES_IDS.append(GDRIVE_ID)
     INDEX_URLS.append(INDEX_URL)
 
@@ -834,7 +834,7 @@ if ospath.exists('list_drives.txt'):
                 INDEX_URLS.append('')
 
 if GDRIVE_ID:
-    CATEGORY_NAMES.append("Root")
+    CATEGORY_NAMES.append("📱𝔸ℙℙ📱")
     CATEGORY_IDS.append(GDRIVE_ID)
     CATEGORY_INDEX.append(INDEX_URL)
 
