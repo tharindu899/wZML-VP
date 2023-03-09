@@ -13,11 +13,11 @@ list_listener = {}
 
 def common_btn(isRecur, msg_id):
     buttons = ButtonMaker()
-    buttons.sbutton("Folders", f"types folders {msg_id}")
-    buttons.sbutton("Files", f"types files {msg_id}")
-    buttons.sbutton("Both", f"types both {msg_id}")
-    buttons.sbutton(f"Recursive {'✅️' if isRecur else ''}", f"types recur {msg_id}")
-    buttons.sbutton("Cancel", f"types cancel {msg_id}")
+    buttons.sbutton("🗂️Folders", f"types folders {msg_id}")
+    buttons.sbutton("📁Files", f"types files {msg_id}")
+    buttons.sbutton("📑Both", f"types both {msg_id}")
+    buttons.sbutton(f"♻️Recursive {'✅️' if isRecur else ''}", f"types recur {msg_id}")
+    buttons.sbutton("❌️Cancel", f"types cancel {msg_id}")
     return buttons.build_menu(3)
 
 def list_buttons(update, context):
@@ -92,17 +92,17 @@ def clist(update, context):
         ind = handleIndex(int(data[3]), udata)
         no = len(udata) - abs(ind+1) if ind < 0 else ind + 1
         if len(udata) > 1:
-            buttons.sbutton("⌫", f"cari {user_id} changepg {ind-1}")
-            buttons.sbutton(f"Pᴀɢᴇs\n{no} / {len(udata)}", f"cari {user_id} pagnav {ind}")
-            buttons.sbutton("⌦", f"cari {user_id} changepg {ind+1}")
+            buttons.sbutton("◀️", f"cari {user_id} changepg {ind-1}")
+            buttons.sbutton(f"📖Pᴀɢᴇs\n{no} / {len(udata)}", f"cari {user_id} pagnav {ind}")
+            buttons.sbutton("▶️", f"cari {user_id} changepg {ind+1}")
         else:
-            buttons.sbutton(f"Pᴀɢᴇs\n{no} / {len(udata)}", f"cari {user_id} pagnav {ind}")
-        buttons.sbutton("Close", f"cari {user_id} clo", 'footer')
+            buttons.sbutton(f"📖Pᴀɢᴇs\n{no} / {len(udata)}", f"cari {user_id} pagnav {ind}")
+        buttons.sbutton("❌️Close", f"cari {user_id} clo", 'footer')
         exdata = formList[0]
-        extras = f'''╭ <b>Query :</b> <i>{exdata[0]}</i>
-├ <b>Total Results :</b> <i>{exdata[1]}</i>
-├ <b>Type :</b> <i>{exdata[2].capitalize()}</i>
-╰ <b>CC :</b> <a href='tg://user?id={user_id}'>{bot.get_chat(user_id).first_name}</a>\n'''
+        extras = f'''╭ <b>🥶Query :</b> <i>{exdata[0]}</i>
+├ <b>📚Total Results :</b> <i>{exdata[1]}</i>
+├ <b>📝Type :</b> <i>{exdata[2].capitalize()}</i>
+╰ <b>🧑CC :</b> <a href='tg://user?id={user_id}'>{bot.get_chat(user_id).first_name}</a>\n'''
         editMessage(extras+udata[ind], query.message, buttons.build_menu(3))
     elif data[2] == "pagnav":
         query.answer()
