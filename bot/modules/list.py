@@ -51,10 +51,10 @@ def select_type(update, context):
         query.answer()
         listener_info[2] = not listener_info[2]
         button = common_btn(listener_info[2], listener_id)
-        return editMessage('Choose Option to list.', message, button)
+        return editMessage('🖍️Choose Option to list.', message, button)
     query.answer()
     item_type = data[1]
-    editMessage(f"<b>Searching for <i>{listener_info[1]}</i></b>\n\n<b>Type</b>: {item_type.capitalize()} | <b>Recursive </b>: {listener_info[2]}",  message)
+    editMessage(f"<b>🔍Searching for <i>{listener_info[1]}</i></b>\n\n<b>Type</b>: {item_type.capitalize()} | <b>Recursive </b>: {listener_info[2]}",  message)
     Thread(target=_list_drive, args=(listener_info, message, item_type, context.bot, listener_info[0])).start()
     del list_listener[listener_id]
 
@@ -72,7 +72,7 @@ def _list_drive(listener, bmsg, item_type, bot, user_id):
         else:
             editMessage(msg, bmsg, button)    
     else:
-        editMessage(f'No result found for <i>{query}</i>', bmsg)
+        editMessage(f'😮‍💨No result found for <i>{query}</i>', bmsg)
 
 def clist(update, context):
     query = update.callback_query
