@@ -13,11 +13,10 @@ from bot.helper.telegram_helper import button_build
 def cancel_mirror(update, context):
     user_id = update.message.from_user.id
     if len(context.args) == 1:
-        gid = context.args[0].replace('_', ' ') # replace _ with space
+        gid = context.args[0].replace(" ", "_")
         dl = getDownloadByGid(gid)
         if not dl:
             return sendMessage(f"GID: <code>{gid}</code> Not Found.", context.bot, update.message)
-  
     elif update.message.reply_to_message:
         mirror_message = update.message.reply_to_message
         with download_dict_lock:
@@ -65,7 +64,7 @@ def cancell_all_buttons(update, context):
     buttons.sbutton("Close", "canall close")
     button = buttons.build_menu(2)
     can_msg = sendMessage('Choose tasks to cancel.', context.bot, update.message, button)
-    Thread(target=auto_delete_message, args=(context.bot, update.message, can_msg)).start()
+    Thread(target=auto_delete_message, args=(context.bot, update.message, can_msg )).start()
 
 @new_thread
 def cancel_all_update(update, context):
