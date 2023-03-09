@@ -53,23 +53,23 @@ def torser(update, context):
     elif len(context.args) == 0 and SITES is None:
         sendMessage("Send a search key along with command", context.bot, update.message)
     elif len(context.args) == 0:
-        buttons.sbutton('Trending', f"torser {user_id} apitrend")
-        buttons.sbutton('Recent', f"torser {user_id} apirecent")
-        buttons.sbutton("Cancel", f"torser {user_id} cancel")
+        buttons.sbutton('Trending', f"torser {user_id} apitrend")
+        buttons.sbutton('Recent', f"torser {user_id} apirecent")
+        buttons.sbutton("Cancel", f"torser {user_id} cancel")
         button = buttons.build_menu(2)
         sendMessage("Send a search key along with command", context.bot, update.message, button)
     elif SITES is not None and SEARCH_PLUGINS:
-        buttons.sbutton('Api', f"torser {user_id} apisearch")
-        buttons.sbutton('Plugins', f"torser {user_id} plugin")
-        buttons.sbutton("Cancel", f"torser {user_id} cancel")
+        buttons.sbutton('Api', f"torser {user_id} apisearch")
+        buttons.sbutton('Plugins', f"torser {user_id} plugin")
+        buttons.sbutton("Cancel", f"torser {user_id} cancel")
         button = buttons.build_menu(2)
-        sendMessage('Choose tool to search:', context.bot, update.message, button)
+        sendMessage('Choose tool to search:', context.bot, update.message, button)
     elif SITES is not None:
         button = __api_buttons(user_id, "apisearch")
-        sendMessage('Choose site to search | API:', context.bot, update.message, button)
+        sendMessage('Choose site to search | API:', context.bot, update.message, button)
     else:
         button = __plugin_buttons(user_id)
-        sendMessage('Choose site to search | Plugins:', context.bot, update.message, button)
+        sendMessage('Choose site to search | Plugins:', context.bot, update.message, button)
 
 def torserbut(update, context):
     query = update.callback_query
@@ -88,7 +88,7 @@ def torserbut(update, context):
     elif data[2] == 'plugin':
         query.answer()
         button = __plugin_buttons(user_id)
-        editMessage('Choose site:', message, button)
+        editMessage('Choose site:', message, button)
     elif data[2] != "cancel":
         query.answer()
         site = data[2]
@@ -161,8 +161,8 @@ def __search(key, site, message, method):
         total_results = dict_search_results.total
         if total_results == 0:
             return editMessage(f"No result found for <i>{key}</i>\nTorrent Site:- <i>{site.capitalize()}</i>", message)
-        msg = f"<b>Found {min(total_results, TELEGRAPH_LIMIT)}</b>"
-        msg += f" <b>result(s) for <i>{key}</i>\nTorrent Site:- <i>{site.capitalize()}</i></b>"
+        msg = f"<b>Found {min(total_results, TELEGRAPH_LIMIT)}</b>"
+        msg += f" <b>result(s) for <i>{key}</i>\nTorrent Site:- <i>{site.capitalize()}</i></b>"
     link = __getResult(search_results, key, message, method)
     buttons = ButtonMaker()
     buttons.buildbutton("🔎 VIEW", link)
@@ -213,11 +213,11 @@ def __getResult(search_results, key, message, method):
                 continue
         else:
             msg += f"<a href='{result.descrLink}'>{escape(result.fileName)}</a><br>"
-            msg += f"<b>Size: </b>{get_readable_file_size(result.fileSize)}<br>"
-            msg += f"<b>Seeders: </b>{result.nbSeeders} | <b>Leechers: </b>{result.nbLeechers}<br>"
+            msg += f"<b>Size: </b>{get_readable_file_size(result.fileSize)}<br>"
+            msg += f"<b>Seeders: </b>{result.nbSeeders} | <b>Leechers: </b>{result.nbLeechers}<br>"
             link = result.fileUrl
             if link.startswith('magnet:'):
-                msg += f"<b>Share Magnet to</b> <a href='http://t.me/share/url?url={quote(link)}'>Telegram</a><br><br>"
+                msg += f"<b>Share Magnet to</b> <a href='http://t.me/share/url?url={quote(link)}'>Telegram</a><br><br>"
             else:
                 msg += f"<a href='{link}'>Direct Link</a><br><br>"
 
@@ -231,11 +231,11 @@ def __getResult(search_results, key, message, method):
     if msg != "":
         telegraph_content.append(msg)
 
-    editMessage(f"<b>Creating</b> {len(telegraph_content)} <b>Telegraph pages.</b>", message)
+    editMessage(f"<b>Creating</b> {len(telegraph_content)} <b>Telegraph pages.</b>", message)
     path = [telegraph.create_page(title=f"{config_dict['TITLE_NAME']}",
                                   content=content)["path"] for content in telegraph_content]
     if len(path) > 1:
-        editMessage(f"<b>Editing</b> {len(telegraph_content)} <b>Telegraph pages.</b>", message)
+        editMessage(f"<b>Editing</b> {len(telegraph_content)} <b>Telegraph pages.</b>", message)
         telegraph.edit_telegraph(path, telegraph_content)
     return f"https://telegra.ph/{path[0]}"
 
