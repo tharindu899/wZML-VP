@@ -735,11 +735,11 @@ class GoogleDriveHelper:
                 buttons.sbutton('⌫', f"cari {self.user_id} changepg -1")
                 buttons.sbutton(f'Pᴀɢᴇs\n1 / {len(telemsg)}', f"cari {self.user_id} pagnav 0")
                 buttons.sbutton('⌦', f"cari {self.user_id} changepg 1")
-            buttons.sbutton('Close', f"cari {self.user_id} clo", 'footer')
-            extra = f'''╭ <b>Query :</b> <i>{fileName}</i>
-├ <b>Total Results :</b> <i>{contents_count}</i>
-├ <b>Type :</b> <i>{itemType.capitalize()}</i>
-╰ <b>CC :</b> <a href='tg://user?id={self.user_id}'>{bot.get_chat(self.user_id).first_name}</a>'''
+            buttons.sbutton('❌️Close', f"cari {self.user_id} clo", 'footer')
+            extra = f'''╭ <b>🥶Query :</b> <i>{fileName}</i>
+├ <b>📚Total Results :</b> <i>{contents_count}</i>
+├ <b>📝Type :</b> <i>{itemType.capitalize()}</i>
+╰ <b>🧑CC :</b> <a href='tg://user?id={self.user_id}'>{bot.get_chat(self.user_id).first_name}</a>'''
             return extra+telemsg[0], buttons.build_menu(3)
 
     def count(self, link):
