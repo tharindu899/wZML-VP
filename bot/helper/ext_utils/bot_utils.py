@@ -115,14 +115,12 @@ def getAllDownload(req_status: str):
 
 def bt_selection_buttons(id_: str):
     gid = id_[:12] if len(id_) > 20 else id_
-
     pincode = ""
     for n in id_:
         if n.isdigit():
             pincode += str(n)
         if len(pincode) == 4:
             break
-
     buttons = ButtonMaker()
     BASE_URL = config_dict['BASE_URL']
     if config_dict['WEB_PINCODE']:
@@ -131,7 +129,6 @@ def bt_selection_buttons(id_: str):
     else:
         buttons.buildbutton("📬Select Files", f"{BASE_URL}/app/files/{id_}?pin_code={pincode}")
     buttons.sbutton("✅️Done Selecting", f"btsel done {gid} {id_}")
-    buttons.sbutton("❌️Cancel", f"types cancel {id_}")
     return buttons.build_menu(2)
 
 
