@@ -131,6 +131,7 @@ def bt_selection_buttons(id_: str):
     else:
         buttons.buildbutton("📬Select Files", f"{BASE_URL}/app/files/{id_}?pin_code={pincode}")
     buttons.sbutton("✅️Done Selecting", f"btsel done {gid} {id_}")
+    buttons.sbutton("❌️Cancel", f"types cancel {msg_id}")
     return buttons.build_menu(2)
 
 
