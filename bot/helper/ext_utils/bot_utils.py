@@ -126,11 +126,11 @@ def bt_selection_buttons(id_: str):
     buttons = ButtonMaker()
     BASE_URL = config_dict['BASE_URL']
     if config_dict['WEB_PINCODE']:
-        buttons.buildbutton("Select Files", f"{BASE_URL}/app/files/{id_}")
-        buttons.sbutton("Pincode", f"btsel pin {gid} {pincode}")
+        buttons.buildbutton("📬Select Files", f"{BASE_URL}/app/files/{id_}")
+        buttons.sbutton("📌Pincode", f"btsel pin {gid} {pincode}")
     else:
-        buttons.buildbutton("Select Files", f"{BASE_URL}/app/files/{id_}?pin_code={pincode}")
-    buttons.sbutton("Done Selecting", f"btsel done {gid} {id_}")
+        buttons.buildbutton("📬Select Files", f"{BASE_URL}/app/files/{id_}?pin_code={pincode}")
+    buttons.sbutton("✅️Done Selecting", f"btsel done {gid} {id_}")
     return buttons.build_menu(2)
 
 
@@ -357,20 +357,20 @@ def get_readable_message():
             bmsg += f"\n<b>🔻 DL:</b> {get_readable_file_size(dl_speed)}/s | <b>🔺 UL:</b> {get_readable_file_size(up_speed)}/s"
         
         buttons = ButtonMaker()
-        buttons.sbutton("Refresh", "status refresh")
-        buttons.sbutton("Statistics", str(THREE))
-        buttons.sbutton("Close", "status close")
+        buttons.sbutton("♻️Refresh", "status refresh")
+        buttons.sbutton("💦Statistics", str(THREE))
+        buttons.sbutton("❌️Close", "status close")
         sbutton = buttons.build_menu(3)
         
         if STATUS_LIMIT and tasks > STATUS_LIMIT:
-            msg += f"<b>Tasks:</b> {tasks}\n"
+            msg += f"<b>📝Tasks:</b> {tasks}\n"
             buttons = ButtonMaker()
             if config_dict['EMOJI_THEME']:
                 buttons.sbutton("⏪Previous", "status pre")
                 buttons.sbutton(f"{PAGE_NO}/{PAGES}", str(THREE))
                 buttons.sbutton("Next⏩", "status nex")
-                buttons.sbutton("Refresh", "status refresh")
-                buttons.sbutton("Close", "status close")
+                buttons.sbutton("♻️Refresh", "status refresh")
+                buttons.sbutton("❌️Close", "status close")
             else:
                 buttons.sbutton("Previous", "status pre")
                 buttons.sbutton(f"{PAGE_NO}/{PAGES}", str(THREE))
@@ -382,16 +382,16 @@ def get_readable_message():
         return msg + bmsg, sbutton
 
 def get_category_buttons(query_data, timeout, msg_id, c_index, u_index, user_id):
-    text = '<b>Selct the category in which you want to upload</b>'
+    text = '<b>✅️Selct the category in which you want to upload📤</b>'
     buttons = ButtonMaker()
     if user_id in user_data and user_data[user_id].get('is_usertd') and u_index is not None:
         GDNames, _, _ = getUserTDs(user_id)
-        text += f"\n<b>Upload</b>: To Drive in {GDNames[u_index]} folder"
+        text += f"\n<b>📤Upload</b>: To Drive in {GDNames[u_index]} folder"
         if len(GDNames) != 0:
             for j, _gname in enumerate(GDNames):
                 buttons.sbutton(f'{_gname} {"✅" if u_index is not None and _gname == GDNames[u_index] else ""}', f"{query_data} ucat {msg_id} {j}")
     else:
-        text += f"\n<b>Upload</b>: To Drive in {CATEGORY_NAMES[c_index]} folder"
+        text += f"\n<b>📤Upload</b>: To Drive in {CATEGORY_NAMES[c_index]} folder"
         for i, _name in enumerate(CATEGORY_NAMES):
             buttons.sbutton(f'{_name} {"✅" if u_index is None and _name == CATEGORY_NAMES[c_index] else ""}', f"{query_data} scat {msg_id} {i}")
     text += f"<u>\n\nYou have {get_readable_time(timeout)} to select mode</u>"
