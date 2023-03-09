@@ -13,7 +13,7 @@ from bot.helper.telegram_helper import button_build
 def cancel_mirror(update, context):
     user_id = update.message.from_user.id
     if len(context.args) == 1:
-        gid = context.args[0].replace("_", " ")
+        gid = context.args[0]
         dl = getDownloadByGid(gid)
         if not dl:
             return sendMessage(f"GID: <code>{gid}</code> Not Found.", context.bot, update.message)
@@ -40,7 +40,6 @@ def cancel_mirror(update, context):
         return
 
     dl.download().cancel_download()
-
 
 def cancel_all(status):
     gid = ''
