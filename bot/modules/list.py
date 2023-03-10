@@ -93,7 +93,7 @@ def clist(update, context):
         no = len(udata) - abs(ind+1) if ind < 0 else ind + 1
         if len(udata) > 1:
             buttons.sbutton("◀️", f"cari {user_id} changepg {ind-1}")
-            buttons.sbutton(f"📖Pᴀɢᴇs\n{no} / {len(udata)}", f"cari {user_id} pagnav {ind}")
+            buttons.sbutton(f"📖page\n{no} / {len(udata)}", f"cari {user_id} pagnav {ind}")
             buttons.sbutton("▶️", f"cari {user_id} changepg {ind+1}")
         else:
             buttons.sbutton(f"📖Pᴀɢᴇs\n{no} / {len(udata)}", f"cari {user_id} pagnav {ind}")
