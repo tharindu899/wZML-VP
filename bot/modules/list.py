@@ -96,7 +96,7 @@ def clist(update, context):
             buttons.sbutton(f"📖page\n{no} / {len(udata)}", f"cari {user_id} pagnav {ind}")
             buttons.sbutton("▶️", f"cari {user_id} changepg {ind+1}")
         else:
-            buttons.sbutton(f"📖Pᴀɢᴇs\n{no} / {len(udata)}", f"cari {user_id} pagnav {ind}")
+            buttons.sbutton(f"📖page\n{no} / {len(udata)}", f"cari {user_id} pagnav {ind}")
         buttons.sbutton("❌️Close", f"cari {user_id} clo", 'footer')
         exdata = formList[0]
         extras = f'''╭ <b>🥶Query :</b> <i>{exdata[0]}</i>
