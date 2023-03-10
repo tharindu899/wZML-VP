@@ -733,7 +733,7 @@ class GoogleDriveHelper:
             buttons = ButtonMaker()
             if len(telemsg) > 1:
                 buttons.sbutton('◀️', f"cari {self.user_id} changepg -1")
-                buttons.sbutton(f'📖Pᴀɢᴇs\n1 / {len(telemsg)}', f"cari {self.user_id} pagnav 0")
+                buttons.sbutton(f'📖\n1 / {len(telemsg)}', f"cari {self.user_id} pagnav 0")
                 buttons.sbutton('▶️', f"cari {self.user_id} changepg 1")
             buttons.sbutton('❌️Close', f"cari {self.user_id} clo", 'footer')
             extra = f'''╭ <b>🥶Query :</b> <i>{fileName}</i>
